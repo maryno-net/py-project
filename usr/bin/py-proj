@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Making temp folder for python eggs
+[ -d ~/.python-eggs ] || mkdir -p ~/.python-eggs
+
+# Changing rights to supress warnings
+chmod g-wx,o-wx ~/.python-eggs
+
+# Virtualenv path
+PYTHON=/usr/lib/py-project/bin/python
+
+# Path to the script that must run under the virtualenv
+SCRIPT=/usr/lib/py-project/bin/py-project
+
+$PYTHON $SCRIPT $@
+

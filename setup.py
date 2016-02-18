@@ -27,8 +27,8 @@ setup(
     description="",
     long_description=__doc__,
     url="http://",
-    license="EULA",
-    author="Maryno.net",
+    license="MIT",
+    author="ООО \"Экстрим\"",
     author_email="devel@maryno.net",
     packages=find_packages(exclude=("tests", "tests.*")),
     entry_points={

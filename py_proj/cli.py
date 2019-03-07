@@ -92,7 +92,7 @@ def start(app, bind, workers, log_level):
     config = {
         "bind": bind,
         "workers": workers,
-        "worker_class": "gaiohttp",
+        "worker_class": "gthread",
         "loglevel": log_level,
     }
     gunicorn = FlaskGunicornApplication(app=app, config=config)

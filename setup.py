@@ -11,10 +11,9 @@ import re
 from setuptools import find_packages, setup
 
 install_requires = [
-    "gunicorn==19.3.0",
-    "aiohttp==0.17.3",
-    "Flask==0.10.1",
-    "click==6.2"
+    "gunicorn==19.9.0",
+    "Flask==1.0.2",
+    "click==7.0"
 ]
 
 with open("py_proj/__init__.py", "r") as fd:

@@ -3,7 +3,7 @@
     py_proj.app
     ~~~~~~~~~~~
 
-    Flask-приложение py-proj.
+    Flask-приложение py_proj.
 
 """
 

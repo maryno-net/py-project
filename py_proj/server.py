@@ -13,7 +13,7 @@ from gunicorn.app.base import Application
 
 
 class FlaskGunicornApplication(Application):
-    """Gunicorn-приложение для py-proj."""
+    """Gunicorn-приложение для py_proj."""
 
     def __init__(self, app, config, *args, **kwargs):
         #: Flask-приложение

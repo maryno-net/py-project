@@ -7,10 +7,10 @@
 chmod g-wx,o-wx ~/.python-eggs
 
 # Virtualenv path
-PYTHON=/usr/lib/py-project/bin/python
+PYTHON=/usr/lib/py_proj/bin/python
 
 # Path to the script that must run under the virtualenv
-SCRIPT=/usr/lib/py-project/bin/py-project
+SCRIPT=/usr/lib/py_proj/bin/py_proj
 
 $PYTHON $SCRIPT $@
 

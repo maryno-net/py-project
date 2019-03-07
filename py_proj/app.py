@@ -11,8 +11,8 @@ from flask import Flask
 from werkzeug.contrib.fixers import ProxyFix
 
 from py_proj.errorhandlers import api_error, fatal, forbidden, not_found
-from py_proj.exceptions import APIError
 from py_proj.example.views import example
+from py_proj.exceptions import APIError
 
 
 def create_app(config_object):

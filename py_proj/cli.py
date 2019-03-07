@@ -53,11 +53,12 @@ def show_help(ctx, param, value):
         click.echo(ctx.get_help(), color=ctx.color)
         ctx.exit()
 
+
 # Опция для отображения справочной информации
-help_option = click.option("-h", "--help", is_flag=True, callback=show_help,
-                           expose_value=False, is_eager=True,
-                           help="Отобразить эту справочную информацию и "
-                                "завершить работу")
+help_option = click.option(
+    "-h", "--help", is_flag=True, callback=show_help, expose_value=False,
+    is_eager=True, help="Отобразить эту справочную информацию и "
+    "завершить работу")
 
 
 @click.group()

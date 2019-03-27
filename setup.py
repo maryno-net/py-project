@@ -13,16 +13,17 @@ from setuptools import find_packages, setup
 install_requires = [
     "gunicorn==19.9.0",
     "Flask==1.0.2",
+    "Werkzeug==0.15.1",
     "click==7.0"
 ]
 
 dev_install_requires = [
     "yapf==0.26.0",
-    "isort==4.3.12",
+    "isort==4.3.16",
 ]
 
 test_install_requires = [
-    "pytest==4.3.0",
+    "pytest==4.3.1",
     "pytest-flask==0.14.0",
     "pytest-cov==2.6.1",
 ]

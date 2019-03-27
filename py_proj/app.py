@@ -8,7 +8,7 @@
 """
 
 from flask import Flask
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from py_proj.errorhandlers import api_error, fatal, forbidden, not_found
 from py_proj.example.views import example

@@ -26,6 +26,11 @@ test_install_requires = [
     'pytest==4.3.1',
     'pytest-flask==0.14.0',
     'pytest-cov==2.6.1',
+    'flake8==3.7.7',
+    'flake8-debugger==3.1.0',
+    'flake8-isort==2.7.0',
+    'flake8-print==3.1.0',
+    'flake8-quotes==1.0.0',
 ]
 
 with open('py_proj/__init__.py', 'r') as fd:

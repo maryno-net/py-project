@@ -37,7 +37,7 @@ def show_version(ctx, param, value):
     :param value: Значение параметра.
     """
     if value and not ctx.resilient_parsing:
-        version = "py_proj {}".format(__version__)
+        version = 'py_proj {}'.format(__version__)
         click.echo(version, color=ctx.color)
         ctx.exit()
 
@@ -56,15 +56,15 @@ def show_help(ctx, param, value):
 
 # Опция для отображения справочной информации
 help_option = click.option(
-    "-h", "--help", is_flag=True, callback=show_help, expose_value=False,
-    is_eager=True, help="Отобразить эту справочную информацию и "
-    "завершить работу")
+    '-h', '--help', is_flag=True, callback=show_help, expose_value=False,
+    is_eager=True, help='Отобразить эту справочную информацию и '
+    'завершить работу')
 
 
 @click.group()
-@click.option("-v", "--version", is_flag=True, callback=show_version,
+@click.option('-v', '--version', is_flag=True, callback=show_version,
               expose_value=False, is_eager=True,
-              help="Отобразить версию приложения и завершить работу")
+              help='Отобразить версию приложения и завершить работу')
 @help_option
 def cli():
     """Интерфейс командной строки для Flask-приложения"""
@@ -81,20 +81,20 @@ def server(ctx):
 
 @server.command()
 @click.pass_obj
-@click.option("-b", "--bind", default="127.0.0.1:9000",
-              help="Сокет для привязки")
-@click.option("-w", "--workers", type=click.IntRange(min=1), default=WORKERS,
-              help="Количество воркеров для обработки запросов")
-@click.option("--log-level", type=LOG_LEVEL_CHOICE, default="INFO",
-              help="Уровень выводимых логов")
+@click.option('-b', '--bind', default='127.0.0.1:9000',
+              help='Сокет для привязки')
+@click.option('-w', '--workers', type=click.IntRange(min=1), default=WORKERS,
+              help='Количество воркеров для обработки запросов')
+@click.option('--log-level', type=LOG_LEVEL_CHOICE, default='INFO',
+              help='Уровень выводимых логов')
 @help_option
 def start(app, bind, workers, log_level):
     """Запустить сервер Gunicorn"""
     config = {
-        "bind": bind,
-        "workers": workers,
-        "worker_class": "gthread",
-        "loglevel": log_level,
+        'bind': bind,
+        'workers': workers,
+        'worker_class': 'gthread',
+        'loglevel': log_level,
     }
     gunicorn = FlaskGunicornApplication(app=app, config=config)
     gunicorn.run()

@@ -37,7 +37,7 @@ def show_version(ctx, param, value):
     :param value: Значение параметра.
     """
     if value and not ctx.resilient_parsing:
-        version = "pythia (Pythia) {}".format(__version__)
+        version = "py_proj {}".format(__version__)
         click.echo(version, color=ctx.color)
         ctx.exit()
 

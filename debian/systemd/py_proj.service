@@ -1,0 +1,11 @@
+[Unit]
+Description=py_proj example service
+
+[Service]
+ExecStart=/usr/bin/py_proj server start -b 0.0.0.0:9000
+User=py_proj
+Group=py_proj
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

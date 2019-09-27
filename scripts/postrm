@@ -1,0 +1,6 @@
+#!/bin/sh
+
+userdel -r py_proj 2>/dev/null || true
+groupdel py_proj 2>/dev/null || true
+
+exit 0

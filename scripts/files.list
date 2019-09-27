@@ -1,0 +1,4 @@
+/usr/lib/py_proj/=/usr/lib/py_proj
+debian/usr/bin/py_proj=/usr/bin/py_proj
+debian/systemd/py_proj.service=/lib/systemd/system/py_proj.service
+py_proj.conf=/etc/py_proj/py_proj.conf

@@ -1,0 +1,23 @@
+image: ci.maryno.net:4567/marynonet/docker/stretch-python3:latest
+
+build:
+  stage: build
+  image: ci.maryno.net:4567/marynonet/docker/stretch-python3-build:latest
+  before_script:
+    - mkdir /usr/lib/py_proj
+    - virtualenv -p python3 /usr/lib/py_proj
+    - source /usr/lib/py_proj/bin/activate
+    - pip install -U pip setuptools
+    - pip install .
+  script:
+    - "export VERSION=$(pip show py_proj | grep -o -P '(?<=^Version: ).*')"
+    - fpm --input-type dir --output-type deb
+      --name py_proj --version $VERSION --iteration $CI_JOB_ID
+      --license "EULA" --vendor "LLC Extreme"
+      --depends python3 --depends python3-dev
+      --inputs scripts/inputs.list
+      --after-install scripts/postinst
+      --after-remove scripts/postrm
+  artifacts:
+    paths:
+      - "*.deb"

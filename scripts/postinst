@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Make sure the administrative user exists
+if ! getent passwd py_proj > /dev/null; then
+    useradd --system \
+        --shell=/bin/bash \
+        --home-dir=/var/lib/py_proj \
+        --user-group=py_proj
+fi
+# If the user was created manually, make sure the group is there as well
+if ! getent group py_proj > /dev/null; then
+    groupadd --system py_proj > /dev/null
+fi
+# Make sure py_proj is in the py_proj group
+if ! id -Gn py_proj | grep -qw py_proj; then
+    usermod -a -G py_proj py_proj
+fi
+
+# Check validity of py_proj user and group
+if [ "`id -u py_proj`" -eq 0 ]; then
+    echo "The py_proj system user must not have uid 0 (root).
+          Please fix this and reinstall this package." >&2
+    exit 1
+fi
+if [ "`id -g py_proj`" -eq 0 ]; then
+    echo "The py_proj system user must not have root as primary group.
+          Please fix this and reinstall this package." >&2
+    exit 1
+fi
+
+# Create home directory
+mkdir -p /var/lib/py_proj
+chmod -R 755 /var/lib/py_proj
+chown py_proj:py_proj /var/lib/py_proj
+
+chmod +x /usr/bin/py_proj
+
+exit 0
